@@ -15,8 +15,48 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "@/components/ui/use-toast";
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  subject: z.string().min(5, {
+    message: "Subject must be at least 5 characters.",
+  }),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+});
+
+type ContactFormValues = z.infer<typeof formSchema>;
 
 const ContactSection = () => {
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  function onSubmit(values: ContactFormValues) {
+    toast({
+      title: "Message sent!",
+      description: "Thank you for your message. I'll get back to you soon.",
+    });
+    console.log(values);
+    form.reset();
+  }
+  
   return (
     <section id="contact" className="section-container">
       <h2 className="section-title text-center">Get In Touch</h2>
@@ -75,9 +115,10 @@ const ContactSection = () => {
           <CardContent className="pt-6">
             <h3 className="text-xl font-bold mb-6">Send Me a Message</h3>
             
-            <Form>
-              <form className="space-y-6">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
+                  control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
@@ -91,6 +132,7 @@ const ContactSection = () => {
                 />
                 
                 <FormField
+                  control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
@@ -104,6 +146,7 @@ const ContactSection = () => {
                 />
                 
                 <FormField
+                  control={form.control}
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
@@ -117,6 +160,7 @@ const ContactSection = () => {
                 />
                 
                 <FormField
+                  control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
