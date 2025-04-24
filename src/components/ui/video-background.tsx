@@ -7,7 +7,7 @@ interface VideoBackgroundProps {
 }
 
 const VideoBackground = ({ videoFileName }: VideoBackgroundProps) => {
-  const { data } = supabase.storage.from('project_videos').getPublicUrl(videoFileName);
+  const { data } = supabase.storage.from('projectvideos').getPublicUrl(videoFileName);
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
