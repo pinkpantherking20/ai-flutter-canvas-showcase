@@ -17,10 +17,8 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Video Background */}
-      <VideoBackground videoUrl="/coding-background.mp4" />
+      <VideoBackground videoFileName="coding-background.mp4" />
       
-      {/* Parallax Elements */}
       <div 
         className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
@@ -64,7 +62,6 @@ const HeroSection = () => {
               <div className="absolute glass-effect rounded-xl w-56 h-56 top-48 left-48 border border-white/20 shadow-xl"></div>
               <div className="absolute glass-effect rounded-xl w-64 h-48 bottom-0 left-24 border border-white/20 shadow-xl"></div>
               
-              {/* Code snippets */}
               <div className="absolute top-6 left-20 bg-tech-blue/90 p-4 rounded-lg font-mono text-xs shadow-lg">
                 <pre className="text-primary">import 'package:flutter/material.dart';</pre>
                 <pre className="text-muted-foreground">class <span className="text-accent">AnimatedApp</span> extends StatefulWidget &#123;</pre>
