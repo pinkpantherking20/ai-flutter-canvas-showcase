@@ -1,17 +1,41 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import VideoBackground from "../ui/video-background";
 
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+      {/* Video Background */}
+      <VideoBackground videoUrl="/coding-background.mp4" />
+      
+      {/* Parallax Elements */}
+      <div 
+        className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      />
       
       <div className="container mx-auto px-4 z-10 py-20 mt-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in">
+          <div 
+            className="animate-fade-in"
+            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+          >
             <p className="text-primary mb-3 font-mono">Hello, my name is</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               <span className="block text-foreground">AI Engineer &</span>
@@ -31,7 +55,10 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative hidden lg:block">
+          <div 
+            className="relative hidden lg:block"
+            style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+          >
             <div className="relative w-full h-[450px] animate-float">
               <div className="absolute glass-effect rounded-xl w-64 h-64 top-0 left-12 border border-white/20 shadow-xl"></div>
               <div className="absolute glass-effect rounded-xl w-56 h-56 top-48 left-48 border border-white/20 shadow-xl"></div>
