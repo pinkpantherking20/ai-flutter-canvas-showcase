@@ -42,7 +42,7 @@ const HeroSection = () => {
                 <pre className="text-primary">import 'package:flutter/material.dart';</pre>
                 <pre className="text-muted-foreground">class <span className="text-accent">AnimatedApp</span> extends StatefulWidget &#123;</pre>
                 <pre className="text-muted-foreground">  @override</pre>
-                <pre className="text-muted-foreground">  _AnimatedAppState createState() => _AnimatedAppState();</pre>
+                <pre className="text-muted-foreground">  _AnimatedAppState createState() =&gt; _AnimatedAppState();</pre>
                 <pre className="text-muted-foreground">&#125;</pre>
               </div>
               
