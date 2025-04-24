@@ -1,15 +1,10 @@
 
 import React from 'react';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from "@/integrations/supabase/client";
 
 interface VideoBackgroundProps {
   videoFileName: string;
 }
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL!, 
-  import.meta.env.VITE_SUPABASE_ANON_KEY!
-);
 
 const VideoBackground = ({ videoFileName }: VideoBackgroundProps) => {
   const { data } = supabase.storage.from('project_videos').getPublicUrl(videoFileName);
