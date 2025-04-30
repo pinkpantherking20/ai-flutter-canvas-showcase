@@ -88,7 +88,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-muted-foreground text-sm">LinkedIn</p>
-                <p className="font-medium">linkedin.com/in/yourusername</p>
+                <p className="font-medium">linkedin.com/in/syed-abdullah-shah-4018a5176</p>
               </div>
             </div>
           </div>
