@@ -60,14 +60,14 @@ const projects = [
   },
   {
     id: 6,
-    title: 'VAPI AI Voice Assistant',
-    description: 'Advanced voice assistant platform with natural language understanding capabilities for conversational interactions.',
-    image: '/vapi-assistant.jpg',
-    tags: ['Voice AI', 'Assistant', 'NLP', 'Conversational'],
+    title: 'SQL AI API',
+    description: 'API that leverages AI to translate natural language queries into SQL database operations for users not proficient in SQL.',
+    image: '/sql-ai-api.jpg', // Note: You might need to update this image file
+    tags: ['AI', 'SQL', 'API', 'Natural Language Processing', 'Database'],
     category: 'ai',
-    githubLink: 'https://github.com/MajorAbdullah/VAPI-AI-Voice-Assistant-main',
+    githubLink: 'https://github.com/MajorAbdullah/sql-ai-api-main',
     liveLink: '#'
-  }
+}
 ];
 
 const ProjectsSection = () => {
