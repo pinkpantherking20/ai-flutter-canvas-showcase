@@ -43,7 +43,7 @@ const TechStackShowcase = () => {
           <div className="h-[2px] flex-grow bg-primary/30"></div>
         </div>
         
-        <div className="w-full overflow-x-auto py-6">
+        <div className="w-full overflow-x-auto py-6 scrollbar-hide">
           <div className="inline-flex animate-scroll gap-8 px-4">
             {techStack.map((tech, index) => (
               <div 
