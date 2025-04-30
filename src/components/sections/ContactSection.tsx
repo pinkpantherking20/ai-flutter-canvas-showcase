@@ -1,17 +1,6 @@
-
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Card, CardContent } from "@/components/ui/card";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
@@ -19,24 +8,21 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "@/components/ui/use-toast";
-
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Name must be at least 2 characters."
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Please enter a valid email address."
   }),
   subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
+    message: "Subject must be at least 5 characters."
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+    message: "Message must be at least 10 characters."
+  })
 });
-
 type ContactFormValues = z.infer<typeof formSchema>;
-
 const ContactSection = () => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
@@ -44,21 +30,18 @@ const ContactSection = () => {
       name: "",
       email: "",
       subject: "",
-      message: "",
-    },
+      message: ""
+    }
   });
-
   function onSubmit(values: ContactFormValues) {
     toast({
       title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      description: "Thank you for your message. I'll get back to you soon."
     });
     console.log(values);
     form.reset();
   }
-  
-  return (
-    <section id="contact" className="section-container">
+  return <section id="contact" className="section-container">
       <h2 className="section-title text-center">Get In Touch</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -75,7 +58,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-muted-foreground text-sm">Email</p>
-                <p className="font-medium">contact@yourdomain.com</p>
+                <p className="font-medium">sa.abdullahshah.2001@gmail.com</p>
               </div>
             </div>
             
@@ -117,65 +100,45 @@ const ContactSection = () => {
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="name" render={({
+                field
+              }) => <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Your name" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="email" render={({
+                field
+              }) => <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input placeholder="Your email" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="subject" render={({
+                field
+              }) => <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
                         <Input placeholder="Subject" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="message" render={({
+                field
+              }) => <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Your message" 
-                          className="min-h-[120px]" 
-                          {...field} 
-                        />
+                        <Textarea placeholder="Your message" className="min-h-[120px]" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    </FormItem>} />
                 
                 <Button type="submit" className="w-full">
                   Send Message
@@ -185,8 +148,6 @@ const ContactSection = () => {
           </CardContent>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
