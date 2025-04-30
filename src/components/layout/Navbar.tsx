@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Code, Menu, X, Linkedin, Github, Twitter } from "lucide-react";
+import { Code, Menu, X, Linkedin, Github, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -30,9 +30,9 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/yourusername', label: 'Twitter' }
+    { icon: Github, href: 'https://github.com/MajorAbdullah', label: 'GitHub' },
+    { icon: Linkedin, href: 'http://www.linkedin.com/in/syed-abdullah-shah-4018a5176', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:sa.abdullahshah.2001@gmail.com', label: 'Email' }
   ];
 
   return (
@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-2 transition-transform hover:scale-105 duration-300">
           <Code className="h-6 w-6 text-primary" />
-          <span className="font-mono font-bold text-xl">DEV</span>
+          <span className="font-mono font-bold text-xl">Major Abdullah</span>
         </a>
 
         {/* Desktop Nav */}
@@ -77,7 +77,10 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground animate-fade-in">
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground animate-fade-in"
+            onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
+          >
             Resume
           </Button>
         </div>
@@ -128,7 +131,10 @@ const Navbar = () => {
               ))}
             </div>
 
-            <Button className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
+            >
               Resume
             </Button>
           </div>

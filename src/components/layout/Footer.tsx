@@ -15,13 +15,28 @@ const Footer = () => {
               Open for freelance opportunities and collaborations on AI and Flutter projects.
             </p>
             <div className="flex gap-3">
-              <Button variant="ghost" size="icon" aria-label="GitHub">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="GitHub"
+                onClick={() => window.open('https://github.com/MajorAbdullah', '_blank')}
+              >
                 <Github className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" aria-label="LinkedIn">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="LinkedIn"
+                onClick={() => window.open('http://www.linkedin.com/in/syed-abdullah-shah-4018a5176', '_blank')}
+              >
                 <Linkedin className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" aria-label="Email">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="Email"
+                onClick={() => window.open('mailto:sa.abdullahshah.2001@gmail.com', '_blank')}
+              >
                 <Mail className="h-5 w-5" />
               </Button>
             </div>
@@ -49,12 +64,14 @@ const Footer = () => {
               <span className="bg-secondary px-2 py-1 rounded text-xs">Dart</span>
               <span className="bg-secondary px-2 py-1 rounded text-xs">React</span>
               <span className="bg-secondary px-2 py-1 rounded text-xs">Firebase</span>
+              <span className="bg-secondary px-2 py-1 rounded text-xs">AWS</span>
+              <span className="bg-secondary px-2 py-1 rounded text-xs">GCP</span>
             </div>
           </div>
         </div>
         
         <div className="pt-8 border-t border-border text-center text-muted-foreground">
-          <p>&copy; {currentYear} · AI & Flutter Developer · Built with React & Tailwind CSS</p>
+          <p>&copy; {currentYear} · Syed Abdullah Shah · Built with React & Tailwind CSS</p>
         </div>
       </div>
     </footer>
