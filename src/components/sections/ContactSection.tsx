@@ -78,7 +78,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="text-muted-foreground text-sm">GitHub</p>
-                <p className="font-medium">github.com/yourusername</p>
+                <p className="font-medium">github.com/MajorAbdullah</p>
               </div>
             </div>
             
