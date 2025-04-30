@@ -1,11 +1,8 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { User, Code, FileText } from "lucide-react";
-
 const AboutSection = () => {
-  return (
-    <section id="about" className="bg-tech-blue py-20">
+  return <section id="about" className="bg-tech-blue py-20">
       <div className="section-container">
         <h2 className="section-title text-center">About Me</h2>
         
@@ -18,10 +15,7 @@ const AboutSection = () => {
                 </div>
                 <h3 className="text-xl font-bold">Background</h3>
               </div>
-              <p className="text-muted-foreground">
-                With over 5 years of experience in software development, I've specialized in AI engineering
-                and Flutter development, creating intelligent and responsive applications for various industries.
-              </p>
+              <p className="text-muted-foreground">With over 3 years of experience in software development, I've specialized in AI engineering and Flutter development, creating intelligent and responsive applications for various industries.</p>
             </CardContent>
           </Card>
           
@@ -33,10 +27,7 @@ const AboutSection = () => {
                 </div>
                 <h3 className="text-xl font-bold">Expertise</h3>
               </div>
-              <p className="text-muted-foreground">
-                I combine AI models with beautiful Flutter interfaces to create smart, intuitive applications.
-                My work spans from computer vision projects to natural language processing implementations.
-              </p>
+              <p className="text-muted-foreground">I combine AI models with beautiful Flutter interfaces to create smart, intuitive applications. My work spans from computer vision projects to natural language processing implementations along with LLM's, Automations and chatbots.</p>
             </CardContent>
           </Card>
           
@@ -48,10 +39,7 @@ const AboutSection = () => {
                 </div>
                 <h3 className="text-xl font-bold">Education</h3>
               </div>
-              <p className="text-muted-foreground">
-                MSc in Artificial Intelligence with a focus on machine learning applications.
-                Certified Flutter Developer with continuous learning in emerging AI technologies and mobile development.
-              </p>
+              <p className="text-muted-foreground">BSc in Computer Sciences with a focus on machine learning applications. Certified Flutter Developer with continuous learning in emerging AI technologies and mobile development.</p>
             </CardContent>
           </Card>
         </div>
@@ -88,8 +76,6 @@ const AboutSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
