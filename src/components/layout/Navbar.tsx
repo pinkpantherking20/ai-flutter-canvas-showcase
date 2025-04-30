@@ -77,12 +77,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Button 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground animate-fade-in"
-            onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
-          >
-            Resume
-          </Button>
+          {/* Resume button moved to HeroSection */}
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -131,12 +126,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            <Button 
-              className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
-            >
-              Resume
-            </Button>
+            {/* Resume button moved to HeroSection */}
           </div>
         </div>
       )}

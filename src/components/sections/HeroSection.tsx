@@ -47,6 +47,13 @@ const HeroSection = () => {
               <Button size="lg" variant="outline" onClick={scrollToContact}>
                 Contact me
               </Button>
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
+              >
+                Resume
+              </Button>
             </div>
           </div>
           
