@@ -1,28 +1,25 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Code, 
   Database, 
-  FlaskRound, 
+  Flask, 
   Github, 
   Linkedin, 
-  Python, 
-  React, 
-  Sql, 
-  Tensorflow 
+  Codepen, 
+  Braces, 
+  BarChart 
 } from "lucide-react";
 
 const SkillsSection = () => {
   const techSkills = [
     { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Python', icon: <Python className="h-8 w-8 text-primary" /> },
-    { name: 'TensorFlow', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <FlaskRound className="h-8 w-8 text-primary" /> },
+    { name: 'Python', icon: <Codepen className="h-8 w-8 text-primary" /> },
+    { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <Flask className="h-8 w-8 text-primary" /> },
     { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Machine Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
     { name: 'Firebase', icon: <Database className="h-8 w-8 text-primary" /> },
     { name: 'UI/UX Design', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Git & Version Control', icon: <Github className="h-8 w-8 text-primary" /> }
@@ -31,12 +28,12 @@ const SkillsSection = () => {
   const aiSkills = [
     { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Machine Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
-    { name: 'Deep Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
-    { name: 'TensorFlow', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <FlaskRound className="h-8 w-8 text-primary" /> },
+    { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
+    { name: 'Deep Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
+    { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <Flask className="h-8 w-8 text-primary" /> },
     { name: 'Data Analysis', icon: <Database className="h-8 w-8 text-primary" /> },
-    { name: 'Model Deployment', icon: <React className="h-8 w-8 text-primary" /> },
+    { name: 'Model Deployment', icon: <Braces className="h-8 w-8 text-primary" /> },
   ];
 
   const flutterSkills = [

@@ -3,13 +3,12 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Code, 
   Database, 
-  FlaskRound, 
+  Flask, 
   Github, 
   Linkedin, 
-  Python, 
-  React, 
-  Sql, 
-  Tensorflow 
+  Codepen, 
+  Braces, 
+  BarChart 
 } from "lucide-react";
 
 type TechItem = {
@@ -19,17 +18,17 @@ type TechItem = {
 
 const TechStackShowcase = () => {
   const techStack: TechItem[] = [
-    { name: "Python", icon: <Python className="h-8 w-8" /> },
+    { name: "Python", icon: <Codepen className="h-8 w-8" /> },
     { name: "Flutter", icon: <Code className="h-8 w-8" /> },
-    { name: "React", icon: <React className="h-8 w-8" /> },
-    { name: "TensorFlow", icon: <Tensorflow className="h-8 w-8" /> },
+    { name: "React", icon: <Braces className="h-8 w-8" /> },
+    { name: "TensorFlow", icon: <BarChart className="h-8 w-8" /> },
     { name: "Firebase", icon: <Database className="h-8 w-8" /> },
-    { name: "SQL", icon: <Sql className="h-8 w-8" /> },
+    { name: "SQL", icon: <Database className="h-8 w-8" /> },
     { name: "GitHub", icon: <Github className="h-8 w-8" /> },
-    { name: "PyTorch", icon: <FlaskRound className="h-8 w-8" /> },
+    { name: "PyTorch", icon: <Flask className="h-8 w-8" /> },
     { name: "FastAPI", icon: <Code className="h-8 w-8" /> },
-    { name: "Django", icon: <Python className="h-8 w-8" /> },
-    { name: "Flask", icon: <FlaskRound className="h-8 w-8" /> },
+    { name: "Django", icon: <Codepen className="h-8 w-8" /> },
+    { name: "Flask", icon: <Flask className="h-8 w-8" /> },
     { name: "Dart", icon: <Code className="h-8 w-8" /> },
     { name: "AWS", icon: <Database className="h-8 w-8" /> },
     { name: "GCP", icon: <Database className="h-8 w-8" /> },
@@ -44,7 +43,7 @@ const TechStackShowcase = () => {
           <div className="h-[2px] flex-grow bg-primary/30"></div>
         </div>
         
-        <ScrollArea className="w-full whitespace-nowrap py-6" orientation="horizontal">
+        <div className="w-full overflow-x-auto py-6">
           <div className="inline-flex animate-scroll gap-8 px-4">
             {techStack.map((tech, index) => (
               <div 
@@ -56,7 +55,7 @@ const TechStackShowcase = () => {
               </div>
             ))}
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </section>
   );
