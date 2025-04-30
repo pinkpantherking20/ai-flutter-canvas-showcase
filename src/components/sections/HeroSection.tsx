@@ -1,32 +1,27 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import VideoBackground from "../ui/video-background";
 import { Link } from "react-router-dom";
-
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
-  
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-    
     window.addEventListener("scroll", handleScroll, {
       passive: true
     });
-    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-  
   return <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <VideoBackground videoFileName="coding-background.mp4" />
       
@@ -42,14 +37,12 @@ const HeroSection = () => {
           <div className="animate-fade-in" style={{
           transform: `translateY(${scrollY * 0.1}px)`
         }}>
-            <p className="text-primary mb-3 font-mono">Hello, my name is</p>
+            <p className="text-primary mb-3 font-mono">Hello, I'm Syed Abdullah Shah</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              <span className="block text-foreground">AI Engineer &</span>
+              <span className="block text-foreground">Python AI Engineer &</span>
               <span className="gradient-text">Flutter Developer</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8">
-              I build intelligent applications and beautiful mobile experiences. Specializing in AI models integration and cross-platform development.
-            </p>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8">I build intelligent applications and beautiful mobile experiences. Specializing in GEN-AI, ML models creation / integration, LLM's, Automations and cross-platform development.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="outline" onClick={scrollToContact}>
                 Contact me
@@ -87,5 +80,4 @@ const HeroSection = () => {
       </div>
     </section>;
 };
-
 export default HeroSection;
