@@ -1,9 +1,10 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Code, 
   Database, 
-  Flask, 
+  FlaskConical, 
   Github, 
   Linkedin, 
   Codepen, 
@@ -16,7 +17,7 @@ const SkillsSection = () => {
     { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Python', icon: <Codepen className="h-8 w-8 text-primary" /> },
     { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <Flask className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <FlaskConical className="h-8 w-8 text-primary" /> },
     { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
     { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
@@ -31,7 +32,7 @@ const SkillsSection = () => {
     { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
     { name: 'Deep Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
     { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <Flask className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <FlaskConical className="h-8 w-8 text-primary" /> },
     { name: 'Data Analysis', icon: <Database className="h-8 w-8 text-primary" /> },
     { name: 'Model Deployment', icon: <Braces className="h-8 w-8 text-primary" /> },
   ];
