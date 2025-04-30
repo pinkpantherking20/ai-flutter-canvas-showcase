@@ -40,7 +40,7 @@ const HeroSection = () => {
             <p className="text-primary mb-3 font-mono">Hello, I'm Syed Abdullah Shah</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               <span className="block text-foreground">Python AI Engineer </span>
-              <span className="gradient-text font-normal text-3xl">&amp; Flutter Developer</span>
+              <span className="gradient-text font-normal text-4xl">&amp; Flutter Developer</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8">I build intelligent applications and beautiful mobile experiences. Specializing in GEN-AI, ML models creation / integration, LLM's, Automations and cross-platform development.</p>
             <div className="flex flex-col sm:flex-row gap-4">
