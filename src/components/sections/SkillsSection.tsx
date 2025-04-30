@@ -1,42 +1,53 @@
 
-import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { 
+  Code, 
+  Database, 
+  FlaskRound, 
+  Github, 
+  Linkedin, 
+  Python, 
+  React, 
+  Sql, 
+  Tensorflow 
+} from "lucide-react";
 
 const SkillsSection = () => {
   const techSkills = [
-    { name: 'Flutter & Dart', level: 90 },
-    { name: 'Python', level: 85 },
-    { name: 'TensorFlow', level: 80 },
-    { name: 'PyTorch', level: 75 },
-    { name: 'Computer Vision', level: 80 },
-    { name: 'Natural Language Processing', level: 85 },
-    { name: 'Machine Learning', level: 85 },
-    { name: 'Firebase', level: 75 },
-    { name: 'UI/UX Design', level: 70 },
-    { name: 'Git & Version Control', level: 85 }
+    { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Python', icon: <Python className="h-8 w-8 text-primary" /> },
+    { name: 'TensorFlow', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <FlaskRound className="h-8 w-8 text-primary" /> },
+    { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Machine Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'Firebase', icon: <Database className="h-8 w-8 text-primary" /> },
+    { name: 'UI/UX Design', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Git & Version Control', icon: <Github className="h-8 w-8 text-primary" /> }
   ];
 
   const aiSkills = [
-    { name: 'Computer Vision', level: 80 },
-    { name: 'Natural Language Processing', level: 85 },
-    { name: 'Machine Learning', level: 85 },
-    { name: 'Deep Learning', level: 80 },
-    { name: 'TensorFlow', level: 80 },
-    { name: 'PyTorch', level: 75 },
-    { name: 'Data Analysis', level: 75 },
-    { name: 'Model Deployment', level: 70 },
+    { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Machine Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'Deep Learning', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'TensorFlow', icon: <Tensorflow className="h-8 w-8 text-primary" /> },
+    { name: 'PyTorch', icon: <FlaskRound className="h-8 w-8 text-primary" /> },
+    { name: 'Data Analysis', icon: <Database className="h-8 w-8 text-primary" /> },
+    { name: 'Model Deployment', icon: <React className="h-8 w-8 text-primary" /> },
   ];
 
   const flutterSkills = [
-    { name: 'Flutter & Dart', level: 90 },
-    { name: 'Custom Animations', level: 85 },
-    { name: 'State Management', level: 85 },
-    { name: 'Firebase Integration', level: 80 },
-    { name: 'Native Features', level: 75 },
-    { name: 'UI/UX Implementation', level: 85 },
-    { name: 'Testing & Deployment', level: 75 },
-    { name: 'Performance Optimization', level: 80 },
+    { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Custom Animations', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'State Management', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Firebase Integration', icon: <Database className="h-8 w-8 text-primary" /> },
+    { name: 'Native Features', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'UI/UX Implementation', icon: <Code className="h-8 w-8 text-primary" /> },
+    { name: 'Testing & Deployment', icon: <Github className="h-8 w-8 text-primary" /> },
+    { name: 'Performance Optimization', icon: <Code className="h-8 w-8 text-primary" /> },
   ];
 
   return (
@@ -58,17 +69,14 @@ const SkillsSection = () => {
               <Card className="bg-card/50 backdrop-blur-sm card-hover">
                 <CardContent className="pt-6">
                   <h3 className="text-xl font-bold mb-6">Technical Proficiency</h3>
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-6">
                     {techSkills.map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground">{skill.level}%</span>
-                        </div>
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-secondary/30" 
-                        />
+                      <div 
+                        key={skill.name} 
+                        className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
+                      >
+                        <div className="mb-3">{skill.icon}</div>
+                        <span className="text-center font-medium">{skill.name}</span>
                       </div>
                     ))}
                   </div>
@@ -118,17 +126,14 @@ const SkillsSection = () => {
               <CardContent className="pt-6">
                 <h3 className="text-xl font-bold mb-6">AI & Machine Learning Skills</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
                     {aiSkills.map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground">{skill.level}%</span>
-                        </div>
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-secondary/30" 
-                        />
+                      <div 
+                        key={skill.name} 
+                        className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
+                      >
+                        <div className="mb-3">{skill.icon}</div>
+                        <span className="text-center font-medium">{skill.name}</span>
                       </div>
                     ))}
                   </div>
@@ -159,17 +164,14 @@ const SkillsSection = () => {
               <CardContent className="pt-6">
                 <h3 className="text-xl font-bold mb-6">Flutter Development Skills</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
                     {flutterSkills.map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex justify-between">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground">{skill.level}%</span>
-                        </div>
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-secondary/30" 
-                        />
+                      <div 
+                        key={skill.name} 
+                        className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
+                      >
+                        <div className="mb-3">{skill.icon}</div>
+                        <span className="text-center font-medium">{skill.name}</span>
                       </div>
                     ))}
                   </div>

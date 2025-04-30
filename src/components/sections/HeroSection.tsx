@@ -1,18 +1,32 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import VideoBackground from "../ui/video-background";
+import { Link } from "react-router-dom";
+
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+    
     window.addEventListener("scroll", handleScroll, {
       passive: true
     });
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
       <VideoBackground videoFileName="coding-background.mp4" />
       
@@ -37,8 +51,7 @@ const HeroSection = () => {
               I build intelligent applications and beautiful mobile experiences. Specializing in AI models integration and cross-platform development.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" onClick={scrollToContact}>
                 Contact me
               </Button>
             </div>
@@ -74,4 +87,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;
