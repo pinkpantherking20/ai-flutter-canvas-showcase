@@ -1,51 +1,131 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Code, 
-  Database, 
-  FlaskConical, 
-  Github, 
-  Linkedin, 
-  Codepen, 
-  Braces, 
-  BarChart 
-} from "lucide-react";
+import {
+  SiFlutter,
+  SiPython,
+  SiTensorflow,
+  SiPytorch,
+  SiFirebase,
+  SiGithub,
+  SiLangchain,
+  SiDjango,
+  SiN8N,
+  SiNumpy,
+  SiOpencv,
+  SiScikitlearn,
+  SiKeras,
+  SiSpacy,
+  SiDart,
+  SiGraphql,
+  SiRedux,
+  SiFastapi,
+  SiOpenai,
+  SiGooglecloud,
+} from "react-icons/si";
+import { FaCode, FaBrain, FaRobot } from "react-icons/fa";
+import { AiOutlineDatabase } from "react-icons/ai";
+import { BsBraces } from "react-icons/bs";
+import { BiLogoVisualStudio } from "react-icons/bi";
 
 const SkillsSection = () => {
   const techSkills = [
-    { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Python', icon: <Codepen className="h-8 w-8 text-primary" /> },
-    { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <FlaskConical className="h-8 w-8 text-primary" /> },
-    { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'Firebase', icon: <Database className="h-8 w-8 text-primary" /> },
-    { name: 'UI/UX Design', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Git & Version Control', icon: <Github className="h-8 w-8 text-primary" /> }
+    {
+      name: "Flutter & Dart",
+      icon: <SiFlutter className="h-8 w-8 text-primary" />,
+    },
+    { name: "Python", icon: <SiPython className="h-8 w-8 text-primary" /> },
+    {
+      name: "TensorFlow",
+      icon: <SiTensorflow className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Natural Language Processing",
+      icon: <SiNumpy className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Machine Learning",
+      icon: <FaBrain className="h-8 w-8 text-primary" />,
+    },
+    { name: "Firebase", icon: <SiFirebase className="h-8 w-8 text-primary" /> },
+    {
+      name: "Git & Version Control",
+      icon: <SiGithub className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "LangChain",
+      icon: <SiLangchain className="h-8 w-8 text-primary" />,
+    },
+    { name: "Django", icon: <SiDjango className="h-8 w-8 text-primary" /> },
+    { name: "n8n", icon: <SiN8N className="h-8 w-8 text-primary" /> },
   ];
 
   const aiSkills = [
-    { name: 'Computer Vision', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Natural Language Processing', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Machine Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'Deep Learning', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'TensorFlow', icon: <BarChart className="h-8 w-8 text-primary" /> },
-    { name: 'PyTorch', icon: <FlaskConical className="h-8 w-8 text-primary" /> },
-    { name: 'Data Analysis', icon: <Database className="h-8 w-8 text-primary" /> },
-    { name: 'Model Deployment', icon: <Braces className="h-8 w-8 text-primary" /> },
+    {
+      name: "Computer Vision",
+      icon: <FaCode className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Natural Language Processing",
+      icon: <FaRobot className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Machine Learning",
+      icon: <FaBrain className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "TensorFlow",
+      icon: <SiTensorflow className="h-8 w-8 text-primary" />,
+    },
+    { name: "PyTorch", icon: <SiPytorch className="h-8 w-8 text-primary" /> },
+    {
+      name: "Data Analysis",
+      icon: <AiOutlineDatabase className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Model Deployment",
+      icon: <BsBraces className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "LangChain",
+      icon: <SiLangchain className="h-8 w-8 text-primary" />,
+    },
+    { name: "Django", icon: <SiDjango className="h-8 w-8 text-primary" /> },
+    { name: "n8n", icon: <SiN8N className="h-8 w-8 text-primary" /> },
   ];
 
   const flutterSkills = [
-    { name: 'Flutter & Dart', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Custom Animations', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'State Management', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Firebase Integration', icon: <Database className="h-8 w-8 text-primary" /> },
-    { name: 'Native Features', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'UI/UX Implementation', icon: <Code className="h-8 w-8 text-primary" /> },
-    { name: 'Testing & Deployment', icon: <Github className="h-8 w-8 text-primary" /> },
-    { name: 'Performance Optimization', icon: <Code className="h-8 w-8 text-primary" /> },
+    {
+      name: "Flutter & Dart",
+      icon: <SiFlutter className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "MVC | MVVM | Clean",
+      icon: <FaCode className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "State Management",
+      icon: <SiRedux className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Firebase Integration",
+      icon: <SiFirebase className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Native Features",
+      icon: <FaCode className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "UI/UX Implementation",
+      icon: <FaCode className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Testing & Deployment",
+      icon: <SiGithub className="h-8 w-8 text-primary" />,
+    },
+    {
+      name: "Performance Optimization",
+      icon: <FaCode className="h-8 w-8 text-primary" />,
+    },
   ];
 
   return (
@@ -66,15 +146,19 @@ const SkillsSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="bg-card/50 backdrop-blur-sm card-hover">
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-bold mb-6">Technical Proficiency</h3>
+                  <h3 className="text-xl font-bold mb-6">
+                    Technical Proficiency
+                  </h3>
                   <div className="grid grid-cols-2 gap-6">
                     {techSkills.map((skill) => (
-                      <div 
-                        key={skill.name} 
+                      <div
+                        key={skill.name}
                         className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
                       >
                         <div className="mb-3">{skill.icon}</div>
-                        <span className="text-center font-medium">{skill.name}</span>
+                        <span className="text-center font-medium">
+                          {skill.name}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -86,12 +170,27 @@ const SkillsSection = () => {
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-bold mb-4">AI Development</h3>
                     <p className="text-muted-foreground mb-4">
-                      Experienced in building and deploying machine learning models, with a focus on 
-                      computer vision and natural language processing applications.
+                      Experienced in building and deploying machine learning
+                      models, LLM's integration with AI Agents for Automations.
                     </p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {['TensorFlow', 'PyTorch', 'Scikit-Learn', 'Keras', 'OpenCV', 'NLTK', 'spaCy'].map((tech) => (
-                        <div key={tech} className="bg-secondary/30 py-2 px-4 rounded-md text-center">
+                      {[
+                        "TensorFlow",
+                        "PyTorch",
+                        "Scikit-Learn",
+                        "N8N",
+                        "Django",
+                        "Keras",
+                        "RAG",
+                        "Pandas",
+                        "OpenCV",
+                        "NLTK",
+                        "spaCy",
+                      ].map((tech) => (
+                        <div
+                          key={tech}
+                          className="bg-secondary/30 py-2 px-4 rounded-md text-center"
+                        >
                           {tech}
                         </div>
                       ))}
@@ -101,14 +200,30 @@ const SkillsSection = () => {
 
                 <Card className="bg-card/50 backdrop-blur-sm card-hover">
                   <CardContent className="pt-6">
-                    <h3 className="text-xl font-bold mb-4">Flutter Development</h3>
+                    <h3 className="text-xl font-bold mb-4">
+                      Flutter Development
+                    </h3>
                     <p className="text-muted-foreground mb-4">
-                      Specialized in creating beautiful, responsive, and performant mobile applications 
-                      with complex animations and integrations.
+                      Specialized in creating beautiful, responsive, and
+                      performant mobile applications with complex animations and
+                      integrations.
                     </p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {['Dart', 'Provider', 'Bloc', 'Firebase', 'RESTful APIs', 'GraphQL', 'Animations'].map((tech) => (
-                        <div key={tech} className="bg-secondary/30 py-2 px-4 rounded-md text-center">
+                      {[
+                        "Dart",
+                        "Provider",
+                        "Bloc",
+                        "Firebase",
+                        "MVC",
+                        "MVVM",
+                        "RESTful APIs",
+                        "Integrations",
+                        "Animations",
+                      ].map((tech) => (
+                        <div
+                          key={tech}
+                          className="bg-secondary/30 py-2 px-4 rounded-md text-center"
+                        >
                           {tech}
                         </div>
                       ))}
@@ -122,31 +237,62 @@ const SkillsSection = () => {
           <TabsContent value="ai">
             <Card className="bg-card/50 backdrop-blur-sm card-hover">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-bold mb-6">AI & Machine Learning Skills</h3>
+                <h3 className="text-xl font-bold mb-6">
+                  AI & Machine Learning Skills
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="grid grid-cols-2 gap-4">
                     {aiSkills.map((skill) => (
-                      <div 
-                        key={skill.name} 
+                      <div
+                        key={skill.name}
                         className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
                       >
                         <div className="mb-3">{skill.icon}</div>
-                        <span className="text-center font-medium">{skill.name}</span>
+                        <span className="text-center font-medium">
+                          {skill.name}
+                        </span>
                       </div>
                     ))}
                   </div>
                   <div>
                     <p className="text-muted-foreground mb-6">
-                      My AI expertise spans from developing computer vision systems for object detection to creating
-                      natural language processing solutions for text analysis and generation.
+                      My AI expertise spans from developing computer vision
+                      systems for object detection to creating natural language
+                      processing solutions for text analysis and generation.
                     </p>
                     <p className="text-muted-foreground mb-6">
-                      I've worked with various machine learning frameworks, deployed models to production environments,
-                      and optimized algorithms for resource-constrained devices like mobile phones.
+                      I've worked with various machine learning frameworks,
+                      deployed models to production environments, and optimized
+                      algorithms for resource-constrained devices like mobile
+                      phones.
                     </p>
                     <div className="grid grid-cols-2 gap-3">
-                      {['Data Preprocessing', 'Model Training', 'Fine-tuning', 'Edge Deployment', 'ML Pipelines', 'Hyperparameter Optimization'].map((tech) => (
-                        <div key={tech} className="bg-secondary/30 py-2 px-4 rounded-md text-center">
+                      {[
+                        "Supervised Learning",
+                        "Unsupervised Learning",
+                        "Neural Networks",
+                        "AI-Powered Automation",
+                        "Reinforcement Learning",
+                        "Feature Engineering",
+                        "Model Evaluation",
+                        "Hyperparameter Tuning",
+                        "Natural Language Processing",
+                        "Computer Vision",
+                        "Model Deployment",
+                        "Large Language Models (LLMs)",
+                        "Prompt Engineering",
+                        "Fine-Tuning LLMs",
+                        "LangChain",
+                        "Retrieval-Augmented Generation",
+                        "Vector Search",
+                        "OpenAI / Cohere / Anthropic",
+                        "Prompt Engineering",
+                        "Conversational AI",
+                      ].map((tech) => (
+                        <div
+                          key={tech}
+                          className="bg-secondary/30 py-2 px-4 rounded-md text-center"
+                        >
                           {tech}
                         </div>
                       ))}
@@ -160,31 +306,53 @@ const SkillsSection = () => {
           <TabsContent value="flutter">
             <Card className="bg-card/50 backdrop-blur-sm card-hover">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-bold mb-6">Flutter Development Skills</h3>
+                <h3 className="text-xl font-bold mb-6">
+                  Flutter Development Skills
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="grid grid-cols-2 gap-4">
                     {flutterSkills.map((skill) => (
-                      <div 
-                        key={skill.name} 
+                      <div
+                        key={skill.name}
                         className="flex flex-col items-center p-4 bg-secondary/30 rounded-lg hover:bg-secondary/50 transition-all"
                       >
                         <div className="mb-3">{skill.icon}</div>
-                        <span className="text-center font-medium">{skill.name}</span>
+                        <span className="text-center font-medium">
+                          {skill.name}
+                        </span>
                       </div>
                     ))}
                   </div>
                   <div>
                     <p className="text-muted-foreground mb-6">
-                      As a Flutter developer, I create beautiful, responsive applications with complex animations
-                      and seamless user experiences across iOS and Android platforms.
+                      As a Flutter developer, I create beautiful, responsive
+                      applications with complex animations and seamless user
+                      experiences across iOS and Android platforms.
                     </p>
                     <p className="text-muted-foreground mb-6">
-                      My experience includes implementing various state management solutions, integrating with
-                      backend services, and optimizing performance for smooth user interactions.
+                      My experience includes implementing various state
+                      management solutions, integrating with backend services,
+                      and optimizing performance for smooth user interactions.
                     </p>
                     <div className="grid grid-cols-2 gap-3">
-                      {['Responsive Design', 'Package Development', 'CI/CD', 'App Store Publishing', 'Platform Integration', 'Custom Painters'].map((tech) => (
-                        <div key={tech} className="bg-secondary/30 py-2 px-4 rounded-md text-center">
+                      {[
+                        "StateMgmt",
+                        "ResponsiveUI",
+                        "Firebase",
+                        "REST APIs",
+                        "Routing",
+                        "Themes",
+                        "Testing",
+                        "CI/CD",
+                        "Optimization",
+                        "Packages",
+                        "MVC | MVVM | Clean",
+                        "FormValidation",
+                      ].map((tech) => (
+                        <div
+                          key={tech}
+                          className="bg-secondary/30 py-2 px-4 rounded-md text-center"
+                        >
                           {tech}
                         </div>
                       ))}
