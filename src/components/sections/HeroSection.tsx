@@ -1,138 +1,86 @@
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ChevronDown, Download, Mail, Github, Linkedin, MapPin } from 'lucide-react';
-import FloatingElements from '@/components/ui/floating-elements';
-import ParticleSystem from '@/components/ui/particle-system';
-
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import VideoBackground from "../ui/video-background";
+import { Link } from "react-router-dom";
 const HeroSection = () => {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background Elements */}
-      <FloatingElements />
-      <ParticleSystem particleCount={20} />
+  return <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+      <VideoBackground videoFileName="coding-background.mp4" />
       
-      {/* Main Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        {/* Profile Avatar */}
-        <div className="mb-8 animate-scale-in">
-          <div className="relative inline-block">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full glass-card mx-auto mb-6 overflow-hidden neon-glow-strong animate-glow-pulse">
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-                  SA
-                </div>
+      <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl" style={{
+      transform: `translateY(${scrollY * 0.2}px)`
+    }} />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl" style={{
+      transform: `translateY(${scrollY * 0.3}px)`
+    }} />
+      
+      <div className="container mx-auto px-4 z-10 py-20 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="animate-fade-in" style={{
+          transform: `translateY(${scrollY * 0.1}px)`
+        }}>
+            <p className="text-primary mb-3 font-mono">Hello, I'm Syed Abdullah Shah</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              <span className="block text-foreground">AI Engineer</span>
+              <span className="gradient-text font-normal text-4xl">&amp; Flutter Developer</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8">I build intelligent applications and beautiful experiences. Specializing in GEN-AI, ML models creation / integration, LLM's, Automations and cross-platform development.</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" variant="outline" onClick={scrollToContact}>
+                Contact me
+              </Button>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}>
+                Resume
+              </Button>
+            </div>
+          </div>
+          
+          <div className="relative hidden lg:block" style={{
+          transform: `translateY(${scrollY * -0.1}px)`
+        }}>
+            <div className="relative w-full h-[450px] animate-float">
+              <div className="absolute glass-effect rounded-xl w-64 h-64 top-0 left-12 border border-white/20 shadow-xl"></div>
+              <div className="absolute glass-effect rounded-xl w-56 h-56 top-48 left-48 border border-white/20 shadow-xl"></div>
+              <div className="absolute glass-effect rounded-xl w-64 h-48 bottom-0 left-24 border border-white/20 shadow-xl"></div>
+              
+              <div className="absolute top-6 left-20 bg-tech-blue/90 p-4 rounded-lg font-mono text-xs shadow-lg">
+                <pre className="text-primary">import 'package:flutter/material.dart';</pre>
+                <pre className="text-muted-foreground">class <span className="text-accent">AnimatedApp</span> extends StatefulWidget &#123;</pre>
+                <pre className="text-muted-foreground">  @override</pre>
+                <pre className="text-muted-foreground">  _AnimatedAppState createState() =&gt; _AnimatedAppState();</pre>
+                <pre className="text-muted-foreground">&#125;</pre>
+              </div>
+              
+              <div className="absolute top-56 left-56 bg-tech-blue/90 p-4 rounded-lg font-mono text-xs shadow-lg">
+                <pre className="text-primary">import tensorflow as tf</pre>
+                <pre className="text-muted-foreground">model = tf.keras.Sequential([</pre>
+                <pre className="text-muted-foreground">    tf.keras.layers.Dense(128, activation='relu'),</pre>
+                <pre className="text-muted-foreground">    tf.keras.layers.Dropout(0.2),</pre>
+                <pre className="text-muted-foreground">    tf.keras.layers.Dense(10)</pre>
+                <pre className="text-muted-foreground">])</pre>
               </div>
             </div>
-            <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full border-4 border-background animate-pulse"></div>
           </div>
         </div>
-
-        {/* Status Badge */}
-        <div className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          <Badge className="glass-card px-4 py-2 text-sm font-medium">
-            <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-            Available for freelance projects
-          </Badge>
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <span className="block gradient-text mb-2">Syed Abdullah</span>
-          <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-normal">
-            Full-Stack Developer & AI Engineer
-          </span>
-        </h1>
-
-        {/* Description */}
-        <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          Crafting innovative digital experiences with cutting-edge AI, machine learning, 
-          and modern web technologies. Transforming ideas into intelligent solutions that shape the future.
-        </p>
-
-        {/* Location */}
-        <div className="flex items-center justify-center gap-2 mb-8 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <MapPin className="w-4 h-4 text-primary" />
-          <span className="text-muted-foreground">Pakistan • Remote Worldwide</span>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-          <Button 
-            size="lg" 
-            className="glass-button px-8 py-4 text-lg font-semibold group neon-glow"
-            onClick={scrollToContact}
-          >
-            <Mail className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-            Let's Work Together
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="glass-button px-8 py-4 text-lg font-semibold group"
-            onClick={() => window.open('https://drive.google.com/file/d/1TQIpqiWwbSnaiBQT1FoBYHlg6i9h6SWp/view?usp=sharing', '_blank')}
-          >
-            <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-            Download Resume
-          </Button>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex justify-center gap-6 mb-12 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
-          <Button
-            variant="ghost"
-            size="lg"
-            className="glass-button rounded-full w-14 h-14 group"
-            onClick={() => window.open('https://github.com/MajorAbdullah', '_blank')}
-          >
-            <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </Button>
-          
-          <Button
-            variant="ghost"
-            size="lg"
-            className="glass-button rounded-full w-14 h-14 group"
-            onClick={() => window.open('https://linkedin.com/in/syed-abdullah-shah-4018a5176', '_blank')}
-          >
-            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </Button>
-          
-          <Button
-            variant="ghost"
-            size="lg"
-            className="glass-button rounded-full w-14 h-14 group"
-            onClick={scrollToContact}
-          >
-            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </Button>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="scroll-indicator animate-fade-in-up" style={{ animationDelay: '1.4s' }}>
-          <Button
-            variant="ghost"
-            size="lg"
-            className="glass-button rounded-full w-14 h-14 group"
-            onClick={scrollToProjects}
-          >
-            <ChevronDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
-          </Button>
-          <p className="text-sm text-muted-foreground mt-2 opacity-70">Scroll to explore</p>
-        </div>
       </div>
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20 pointer-events-none"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
