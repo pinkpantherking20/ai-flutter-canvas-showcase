@@ -3,11 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "@/components/ui/use-toast";
+import emailjs from '@emailjs/browser';
+import { useState } from "react";
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters."
@@ -24,6 +26,8 @@ const formSchema = z.object({
 });
 type ContactFormValues = z.infer<typeof formSchema>;
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,13 +37,41 @@ const ContactSection = () => {
       message: ""
     }
   });
-  function onSubmit(values: ContactFormValues) {
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon."
-    });
-    console.log(values);
-    form.reset();
+
+  async function onSubmit(values: ContactFormValues) {
+    setIsSubmitting(true);
+    
+    try {
+      // EmailJS configuration - Replace with your actual service details
+      await emailjs.send(
+        'service_your_service_id', // Replace with your EmailJS service ID
+        'template_your_template_id', // Replace with your EmailJS template ID
+        {
+          from_name: values.name,
+          from_email: values.email,
+          subject: values.subject,
+          message: values.message,
+          to_email: 'sa.abdullahshah.2001@gmail.com'
+        },
+        'your_public_key' // Replace with your EmailJS public key
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon."
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
   return <section id="contact" className="section-container">
       <h2 className="section-title text-center">Get In Touch</h2>
@@ -140,8 +172,18 @@ const ContactSection = () => {
                       <FormMessage />
                     </FormItem>} />
                 
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full gap-2" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </Form>
