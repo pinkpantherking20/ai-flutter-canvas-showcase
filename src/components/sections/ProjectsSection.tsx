@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Github, ExternalLink, Calendar, Users, Target, Lightbulb, Star } from 'lucide-react';
+import { Github, ExternalLink, Calendar, Users, Target, Lightbulb, Star, Sparkles } from 'lucide-react';
+import FloatingElements from '@/components/ui/floating-elements';
 
 // Extended projects data structure with detailed information
 const projects = [
@@ -194,22 +195,35 @@ const ProjectsSection = () => {
     category === 'all' ? projects : projects.filter(p => p.category === category);
 
   return (
-    <section id="projects" className="section-container">
-      <h2 className="section-title text-center">My Projects</h2>
+    <section id="projects" className="section-container relative">
+      <FloatingElements className="opacity-30" />
+      
+      <div className="relative z-10">
+        <h2 className="section-title flex items-center justify-center gap-4">
+          <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+          Featured Projects
+          <Sparkles className="w-8 h-8 text-accent animate-pulse" />
+        </h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-[600px] md:h-[700px] lg:h-[800px]">
         {/* Left Panel - Project List */}
         <div className="lg:col-span-1">
-          <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50">
+          <Card className="h-full glass-card"
+            style={{
+              background: 'rgba(255, 255, 255, 0.03)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
             <CardContent className="p-0">
-              <div className="p-6 border-b border-border/50">
-                <h3 className="text-xl font-bold mb-4">Project Portfolio</h3>
+              <div className="p-6 border-b border-white/10">
+                <h3 className="text-xl font-bold mb-4 gradient-text">Project Portfolio</h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map(category => (
                     <Badge 
                       key={category} 
                       variant="outline" 
-                      className="cursor-pointer hover:bg-primary/20 transition-colors capitalize text-xs"
+                      className="cursor-pointer glass-button transition-all duration-300 capitalize text-xs hover:neon-glow"
                     >
                       {category === 'all' ? 'All' : category}
                     </Badge>
@@ -222,16 +236,16 @@ const ProjectsSection = () => {
                   {projects.map((project) => (
                     <Card 
                       key={project.id}
-                      className={`cursor-pointer transition-all duration-300 hover:scale-[1.02] border ${
+                      className={`cursor-pointer transition-all duration-500 card-hover ${
                         selectedProject.id === project.id 
-                          ? 'border-primary bg-primary/10' 
-                          : 'border-border/30 hover:border-border/60'
+                          ? 'glass-card neon-glow border-primary/50' 
+                          : 'glass-card hover:neon-glow border-white/10'
                       }`}
                       onClick={() => setSelectedProject(project)}
                     >
                       <CardContent className="p-4">
                         <div className="flex items-start gap-3">
-                          <div className="w-12 h-12 rounded-lg bg-muted overflow-hidden flex-shrink-0">
+                          <div className="w-12 h-12 rounded-lg glass-card overflow-hidden flex-shrink-0">
                             <img 
                               src={project.image} 
                               alt={project.title}
@@ -246,7 +260,7 @@ const ProjectsSection = () => {
                             <p className="text-xs text-muted-foreground mb-2">{project.subtitle}</p>
                             <div className="flex flex-wrap gap-1">
                               {project.technologies.slice(0, 2).map(tech => (
-                                <Badge key={tech} variant="secondary" className="text-xs px-1 py-0">
+                                <Badge key={tech} variant="secondary" className="text-xs px-1 py-0 glass-button">
                                   {tech}
                                 </Badge>
                               ))}
@@ -267,7 +281,13 @@ const ProjectsSection = () => {
 
         {/* Right Panel - Project Details */}
         <div className="lg:col-span-2">
-          <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50">
+          <Card className="h-full glass-card"
+            style={{
+              background: 'rgba(255, 255, 255, 0.03)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)'
+            }}
+          >
             <CardContent className="p-0 h-full">
               <ScrollArea className="h-full">
                 <div className="p-8">
@@ -275,14 +295,14 @@ const ProjectsSection = () => {
                   <div className="mb-8">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h1 className="text-3xl font-bold mb-2">{selectedProject.title}</h1>
-                        <p className="text-lg text-primary font-medium">{selectedProject.subtitle}</p>
+                        <h1 className="text-3xl font-bold mb-2 gradient-text">{selectedProject.title}</h1>
+                        <p className="text-lg text-primary font-medium animate-pulse">{selectedProject.subtitle}</p>
                       </div>
                       <div className="flex gap-3">
                         <Button 
                           variant="outline" 
                           size="sm" 
-                          className="gap-2"
+                          className="gap-2 glass-button hover:neon-glow"
                           onClick={() => window.open(selectedProject.githubLink, '_blank')}
                         >
                           <Github className="h-4 w-4" />
@@ -292,7 +312,7 @@ const ProjectsSection = () => {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="gap-2"
+                            className="gap-2 glass-button hover:neon-glow"
                             onClick={() => window.open(selectedProject.liveLink, '_blank')}
                           >
                             <ExternalLink className="h-4 w-4" />
@@ -302,7 +322,7 @@ const ProjectsSection = () => {
                       </div>
                     </div>
                     
-                    <div className="w-full h-64 rounded-lg bg-muted overflow-hidden mb-6">
+                    <div className="w-full h-64 rounded-lg glass-card overflow-hidden mb-6 neon-glow">
                       <img 
                         src={selectedProject.image} 
                         alt={selectedProject.title}
@@ -369,7 +389,7 @@ const ProjectsSection = () => {
                     <h2 className="text-xl font-bold mb-4">Technologies Utilized</h2>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map(tech => (
-                        <Badge key={tech} variant="outline" className="bg-secondary/30 hover:bg-secondary/50 transition-colors">
+                        <Badge key={tech} variant="outline" className="glass-button hover:neon-glow transition-all duration-300">
                           {tech}
                         </Badge>
                       ))}
@@ -380,6 +400,7 @@ const ProjectsSection = () => {
             </CardContent>
           </Card>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 220 25% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 9%;
+    --card: 220 25% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 220 25% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 252 83% 75%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 263 85% 70%;
+    --primary-foreground: 220 25% 6%;
 
-    --secondary: 217 33% 18%;
+    --secondary: 217 33% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 18%;
+    --muted: 217 33% 15%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 199 89% 60%;
+    --accent-foreground: 220 25% 6%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 25%;
-    --input: 217 33% 25%;
-    --ring: 224 76% 48%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 263 85% 70%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,6 +45,18 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    --glass-backdrop: blur(20px);
+    
+    /* Neon Glow Variables */
+    --neon-primary: 263 85% 70%;
+    --neon-secondary: 199 89% 60%;
+    --neon-glow: 0 0 20px hsl(var(--neon-primary) / 0.5);
+    --neon-glow-strong: 0 0 40px hsl(var(--neon-primary) / 0.8);
   }
 }
 
@@ -53,33 +65,159 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+  html {
+    scroll-behavior: smooth;
   }
 
-  .glass-effect {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 25% 4%) 100%);
+    background-attachment: fixed;
+  }
+
+  /* Glassmorphism Base Classes */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl border border-white/10;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+      0 25px 45px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-button {
+    @apply glass-card transition-all duration-300;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+    @apply text-transparent bg-clip-text;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .neon-glow {
+    box-shadow: var(--neon-glow);
+  }
+
+  .neon-glow-strong {
+    box-shadow: var(--neon-glow-strong);
   }
 }
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 relative;
   }
 
   .section-title {
-    @apply text-3xl sm:text-4xl font-bold gradient-text mb-8 sm:mb-12;
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-8 sm:mb-12 text-center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20;
+    @apply transition-all duration-500 hover:scale-105;
+    transform-style: preserve-3d;
+  }
+  
+  .card-hover:hover {
+    box-shadow: 
+      0 35px 60px rgba(0, 0, 0, 0.15),
+      0 0 40px hsl(var(--primary) / 0.3);
   }
 
+  /* Floating Animation Keyframes */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: floating 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .floating-slow {
+    animation: floating 8s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Particle System */
+  .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particle-float 20s linear infinite;
+  }
+
+  /* Scroll Indicators */
+  .scroll-indicator {
+    @apply absolute bottom-8 left-1/2 transform -translate-x-1/2;
+    animation: bounce 2s infinite;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+  }
+
+  /* Hide scrollbar but keep scrolling functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  
+  /* For Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Enhanced Animations */
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
@@ -96,6 +234,10 @@
     animation: scaleIn 0.5s ease-out forwards;
   }
 
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -103,14 +245,27 @@
     overflow: hidden;
   }
 
-  /* Hide scrollbar but keep scrolling functionality */
-  .hide-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  
-  /* For Chrome, Safari and Opera */
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+
+  /* Geometric shapes */
+  .geometric-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    animation: float-rotate 20s linear infinite;
+  }
+
+  .geometric-triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid hsl(var(--primary) / 0.1);
+    animation: float-rotate 15s linear infinite reverse;
   }
 }
